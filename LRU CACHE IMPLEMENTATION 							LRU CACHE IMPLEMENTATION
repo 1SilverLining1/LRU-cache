@@ -1,0 +1,66 @@
+   								LRU CACHE IMPLEMENTATION 
+   								
+1. LRU stands for Least recently used cache. 
+2.Cache: 
+	
+   	Cache is memory which is used for providing efficent and fast way of retrieving data. 
+       The propertied of Cache are : 
+       1.Fixed sixe : 
+       		Cache needs to have some bounds to limit memory usages.
+       		
+       	2.Fast Access : 
+       		 Cache Insert and lookup operation should be fast , preferably O(1) time
+       	
+       	3.Replacement of Entry in case , Memory Limit is reached: A cache should have efficient algorithm to evict the entry when memory is full
+       	
+3. Various cache replacement algorithm : 
+	
+	
+4.Least recently used meaning : 
+	Data that have not been  acessed for longest time. 
+	
+5. In case of LRU we evict the entry whcih has not been accessed for longest time  when the capacity is full. Hence we have keep the track of data that haver been recently used and data that have not been recently used. 
+
+6. HashMap : 
+	To provide O(1) lookup we have to use HashMap. 
+	We will create hashMAp of Key and address of the node that contains the key. 
+	Insertion in HashMap takes O(1) 
+	HashMap does not has mechanism of tracking which entry has been queried recently and which not.
+	
+7.Doubly LinkedList : 
+	It provide O(1) Insertion, Delection and updataion . 
+	In DLL we will store the value of the key.
+	
+	
+8. Various operation to be performed oon LRU cache : 
+	1.Insertion . 
+	2.Update. 
+	3.query
+	4.Deletion
+	
+9. In Which HashMap will hold the keys and address of the Nodes of Doubly LinkedList . And Doubly LinkedList will hold the values of keys.
+
+10.	
+	Strengths:
+		Super fast accesses. LRU caches store items in order from most-recently used to least-recently used. That means both can be accessed in O(1)O(1) time.
+
+		Super fast updates. Each time an item is accessed, updating the cache takes O(1)O(1) time.
+
+	Weaknesses:
+		
+	Space heavy. An LRU cache tracking nn items requires a linked list of length nn, and a hash map holding nn items. That's O(n)O(n) space, but it's still two data structures (as opposed to one).
+	
+	
+	
+11 .Why Use A Cache?
+Say you're managing a cooking site with lots of cake recipes. As with any website, you want to serve up pages as fast as possible.
+
+When a user requests a recipe, you open the corresponding file on disk, read in the HTML, and send it back over the network. This works, but it's pretty slow, since accessing disk takes a while.
+
+Ideally, if lots of users request the same recipe, you'd like to only read it in from disk once, keeping the page in memory so you can quickly send it out again when it's requested. Bam. You just added a cache.
+
+A cache is just fast storage. Reading data from a cache takes less time than reading it from something else (like a hard disk).
+
+Here's the cache catch: caches are small. You can't fit everything in a cache, so you're still going to have to use larger, slower storage from time to time.
+
+If you can't fit everything in the cache, how do you decide what the cache should store?
